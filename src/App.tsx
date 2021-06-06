@@ -1,28 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Hello from './components/Hello';
+import React from 'react'
+import robotes from './mockdata/robots.json'
+import styles from "./App.module.css";
 
-function App() {
+import RoBot from './components/Robot'
+import ShoppingCart from "./components/ShoppingCart";
+
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Hello ></Hello>
+    <div>
+    <header>
+      <ShoppingCart></ShoppingCart>
+    </header>
+    <div className={styles.app}>
+      <div className={styles.robotList}>
+        {robotes.map((item,index) => (
+          <RoBot id={item.id} name={item.name} email={item.email} key={index}></RoBot>
+        ))}
+      </div>
     </div>
-  );
+    </div>
+  )
 }
 
-export default App;
+export default App
