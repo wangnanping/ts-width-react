@@ -11,7 +11,7 @@ interface Props {}
 //   robotGallery: any[]
 // }
 const App: React.FC = prop => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState<number>(0)
   const [robots, getRobots] = useState<any[]>([])
   /**
    * 页面挂载
@@ -28,9 +28,12 @@ const App: React.FC = prop => {
 
   // 传入空数组 相当于生命周期componentDidMount 挂载进页面时候调用一次
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(data => getRobots(data))
+    const featchFun = async () => {
+      let responses = await fetch('https://jsonplaceholder.typicode.com/users')
+      const res = await responses.json()
+      getRobots(res)
+    }
+    featchFun()
   }, [])
 
   // 每一次页面更新都会触发，会造成死循环
