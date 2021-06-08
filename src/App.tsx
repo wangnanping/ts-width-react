@@ -13,6 +13,8 @@ interface Props {}
 const App: React.FC = prop => {
   const [count, setCount] = useState<number>(0)
   const [robots, getRobots] = useState<any[]>([])
+  const [loading,setLoading] = useState<boolean>(true);
+  const [error,setError] = useState<string>("");
   /**
    * 页面挂载
    */
@@ -29,9 +31,16 @@ const App: React.FC = prop => {
   // 传入空数组 相当于生命周期componentDidMount 挂载进页面时候调用一次
   useEffect(() => {
     const featchFun = async () => {
-      let responses = await fetch('https://jsonplaceholder.typicode.com/users')
-      const res = await responses.json()
-      getRobots(res)
+      setLoading(true)
+      try{
+        let responses = await fetch('https://jsonplaceholder.typicode.com/users')
+        const res = await responses.json()
+        getRobots(res)
+      } catch(e){
+        setError(e.message)
+      }
+    
+      setLoading(false)
     }
     featchFun()
   }, [])
@@ -56,11 +65,14 @@ const App: React.FC = prop => {
         {count}
       </button>
       <ShoppingCart />
-      <div className={styles.robotList}>
-        {robots.map(r => (
-          <Robot id={r.id} email={r.email} name={r.name} />
-        ))}
-      </div>
+      {(!error || error === "") && <div>网站出错:{error}</div>}
+      {
+          !loading?
+      (<div className={styles.robotList}>
+        {robots.map((r,index) => (
+            <Robot id={r.id} email={r.email} name={r.name} key={index} />
+          ))}
+      </div>):(<span>加载中</span>)}
     </div>
   )
   // }
