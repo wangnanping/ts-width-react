@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import logo from './assets/images/logo.svg'
 import robots from './mockdata/robots.json'
 import Robot from './components/Robot'
+import RobotDiscount from './components/RobotDiscount'
 import styles from './App.module.css'
 import ShoppingCart from './components/ShoppingCart'
 
@@ -70,6 +71,7 @@ const App: React.FC = prop => {
           !loading?
       (<div className={styles.robotList}>
         {robots.map((r,index) => (
+          index%2?<RobotDiscount id={r.id} email={r.email} name={r.name} key={index} />:
             <Robot id={r.id} email={r.email} name={r.name} key={index} />
           ))}
       </div>):(<span>加载中</span>)}
