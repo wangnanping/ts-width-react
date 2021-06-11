@@ -45,6 +45,7 @@ const App: React.FC = prop => {
     }
     featchFun()
   }, [])
+  
 
   // 每一次页面更新都会触发，会造成死循环
   // useEffect(()=>{
