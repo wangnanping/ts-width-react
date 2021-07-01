@@ -1,0 +1,24 @@
+.shop_warp {
+    text-align: center;
+
+}
+
+
+.shop_box {
+    position: relative;
+    display: inline-block;
+}
+
+.shop_box>button {
+    cursor: pointer;
+}
+
+.shop_list {
+    list-style: none;
+    position: absolute;
+    top: 9px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #FFF;
+}
