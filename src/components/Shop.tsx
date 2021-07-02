@@ -1,62 +1,64 @@
 import React from 'react'
 import style from './Shop.module.css'
+import { appContext } from '../AppState'
 
-interface PropsType {
-  shopList: string[]
-}
+interface PropsType {}
 interface state {
   btnStatus: boolean
-  list: string[]
 }
 
 class Shop extends React.Component<PropsType, state> {
   constructor (prop: PropsType) {
     super(prop)
     this.state = {
-      btnStatus: false,
-      list: this.props.shopList
+      btnStatus: false
     }
   }
 
   componentDidUpdate (prevProps: any) {
     console.log(prevProps)
-  
   }
 
-  componentWillUpdate () {
-    
-  }
+  componentWillUpdate () {}
 
-//   static getDerivedStateFromProps (nextProps: PropsType, prevState: state) {
-//     console.log(nextProps)
-//   }
+  //   static getDerivedStateFromProps (nextProps: PropsType, prevState: state) {
+  //     console.log(nextProps)
+  //   }
 
   tabListShow = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-       if (this.state.list.length >0) {
-        this.setState({
-            btnStatus: !this.state.btnStatus
-          })
-       }
+    this.setState({
+      btnStatus: !this.state.btnStatus
+    })
   }
 
   render () {
+    const { btnStatus } = this.state
     return (
-      <div className={style.shop_warp}>
-        <div className={style.shop_box}>
-          <button onClick={this.tabListShow}>
-            已购买：{this.state.list.length}
-          </button>
-          {this.state.btnStatus && this.state.list.length > 0 ? (
-            <ul className={style.shop_list}>
-              {this.state.list.map((item, index) => {
-                return <li>{item}</li>
-              })}
-            </ul>
-          ) : (
-            ''
-          )}
-        </div>
-      </div>
+      <appContext.Consumer>
+        {value => {
+          console.log(value)
+          return (
+            <div className={style.shop_warp}>
+              <div className={style.shop_box}>
+                <button onClick={this.tabListShow}>
+                  已购买：{value.shopList.items.length}
+                </button>
+
+                <ul
+                  className={style.shop_list}
+                  style={{
+                    display: btnStatus ? 'block' : 'none'
+                  }}
+                >
+                  {value.shopList.items.map((item, index) => {
+                    return <li key={index}>{item.name}</li>
+                  })}
+                </ul>
+              </div>
+            </div>
+          )
+        }}
+      </appContext.Consumer>
     )
   }
 }
