@@ -87,6 +87,7 @@ class HeaderComponnet extends React.Component<RouteComponentProps, State> {
             <Button.Group className={styles['button-group']}>
               <Button onClick={() => history.push('register')}>注册</Button>
               <Button onClick={() => history.push('signIn')}>登陆</Button>
+              <Button onClick={() => history.push('schedule')}>赛事</Button>
             </Button.Group>
           </div>
         </div>
