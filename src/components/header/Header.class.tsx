@@ -5,9 +5,11 @@ import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd'
 import { GlobalOutlined } from '@ant-design/icons'
 import { withRouter, RouteComponentProps } from 'react-router-dom'
 import store from '../../redux/store'
-import { LanguageState,change_language } from '../../redux/languageReducer'
-
-interface State extends LanguageState {}
+import { LanguageState, change_language } from '../../redux/languageReducer'
+import Storage, { StorageType } from '../../handle'
+interface State extends LanguageState {
+  updataVal: number
+}
 
 class HeaderComponnet extends React.Component<RouteComponentProps, State> {
   constructor (props) {
@@ -15,7 +17,8 @@ class HeaderComponnet extends React.Component<RouteComponentProps, State> {
     const storeState = store.getState()
     this.state = {
       language: storeState.language,
-      languageList: storeState.languageList
+      languageList: storeState.languageList,
+      updataVal: 0
     }
     // 订阅
     store.subscribe(this.handleStoreChange)
@@ -30,6 +33,8 @@ class HeaderComponnet extends React.Component<RouteComponentProps, State> {
 
   menuClickHandler = e => {
     console.log(e)
+    let locationStorage = Storage.getInstence() as StorageType
+    console.log(locationStorage.getStorage('name'))
     // 通过store来更新数据操作
     const action = {
       type: 'CHANGE_LANGUAGE',
@@ -37,15 +42,33 @@ class HeaderComponnet extends React.Component<RouteComponentProps, State> {
     }
     store.dispatch(change_language(action)) // 在reducer中的action获取到当前组件传入action
   }
+  componentDidUpdate (props, state) {
+    // 数据更新
+    console.log(state)
+  }
+
+  setUpdataVal = () => {
+    let newupdataVal = this.state.updataVal
+    this.setState({
+      updataVal: ++newupdataVal
+    })
+    console.log(this.state.updataVal)
+    let locationStorage = Storage.getInstence() as StorageType
+    locationStorage.setStorage('name', 123)
+  }
 
   render () {
     const { history } = this.props
+    const { updataVal } = this.state
     return (
       <div className={styles['app-header']}>
         {/* top-header */}
         <div className={styles['top-header']}>
           <div className={styles.inner}>
-            <Typography.Text>让旅游更幸福</Typography.Text>
+            <span onClick={this.setUpdataVal}>让旅游更幸福{updataVal}</span>
+            <Typography.Text delete underline>
+              让旅游更幸福{updataVal}
+            </Typography.Text>
             <Dropdown.Button
               style={{ marginLeft: 15 }}
               overlay={
