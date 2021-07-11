@@ -11,17 +11,18 @@
     padding: 22px;
 }
 
-.tab_box {
+.tab-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom:14px;
 }
 
-.tab_list {
+.tab-list {
     display: inline-block;
 }
 
-.item_btn {
+.item-btn {
     display: inline-block;
     width: 198px;
     height: 36px;
@@ -34,22 +35,22 @@
     cursor: pointer;
 }
 
-.item_btn_isOk {
+.item-btn-isOk {
     background-color: #ee7568;
     color: #fff;
 }
 
-.content_right{
+.content-right{
     color: #808392;
     font-size:16px;
     display: flex;
     justify-content: flex-end;
 }
-.content_box{
+.content-box{
     margin-right:27px;
 }
 
-.content_num{
+.content-num{
     display: inline-block;
     margin-left:4px;
 }

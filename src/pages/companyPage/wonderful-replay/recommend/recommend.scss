@@ -1,0 +1,52 @@
+.recommend-item {
+    width: 287px;
+    margin-right: 17px;
+    margin-bottom: 18px;
+
+    &:nth-child(4n) {
+        margin-right: 0;
+    }
+
+    .image-text-box {
+        position: relative;
+        height: 168px;
+        border-radius: 4.5px;
+        overflow: hidden;
+
+        &>img {
+            width: 100%;
+
+        }
+
+        .title {
+            width: 100%;
+            height: 59px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            font-size: 18px;
+            color: #fff;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #000000);
+
+            .title-text {
+                margin-left: 8px;
+            }
+        }
+    }
+
+    .remarks {
+        padding-top: 9px;
+        font-size: 14px;
+        color: #999;
+        height:14px;
+        .seeNum{
+            margin-left:28px;
+            display: inline-block;
+            border-left:1px solid #999;
+            padding-left:9px;
+            height:14px;
+            line-height: 14px;
+        }
+    }
+}

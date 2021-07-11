@@ -1,19 +1,15 @@
 import React from 'react'
-import Style from './Schedule.module.css'
 import { Button, Radio } from 'antd'
 import classNames from 'classnames'
-
-import OlympicGames from './olympicGames/OlympicGames'
-import China from './china/China'
+import "./schedule.scss"
+import OlympicGames from './olympic-games/olympic-games' // 奥运会奖牌榜
+import China from './china/china' //中国奖牌榜
 
 interface Prop {}
 
 interface StateType {
-  tabActive: {
-    isOk: boolean
-    tabName: string
-    tabEN: string
-  }[]
+  tabList: { isOk: boolean; tabName: string; tabEN: string }[]
+  tabShow: string
   tabRightContent: { text: string; num: number }[]
 }
 
@@ -21,7 +17,7 @@ export class Schedule extends React.Component<Prop, StateType> {
   constructor (props) {
     super(props)
     this.state = {
-      tabActive: [
+      tabList: [
         {
           isOk: true,
           tabName: '奥运会奖牌榜',
@@ -33,6 +29,7 @@ export class Schedule extends React.Component<Prop, StateType> {
           tabEN: 'china'
         }
       ],
+      tabShow: 'olympicGames',
       tabRightContent: [
         {
           text: '金牌',
@@ -54,35 +51,42 @@ export class Schedule extends React.Component<Prop, StateType> {
     }
   }
 
-  tabActive = (tabName: string) => {
-    let newTabList: any = []
-    this.state.tabActive.forEach(item => {
-      item.tabEN == tabName ? (item.isOk = true) : (item.isOk = false)
+  tabList = (tabName: string) => {
+    let newTabList: any[] = []
+    let newTabShow: string = ''
+    this.state.tabList.forEach(item => {
+      if (item.tabEN == tabName) {
+        item.isOk = true
+        newTabShow = item.tabEN
+      } else {
+        item.isOk = false
+      }
       newTabList.push(item)
     })
     this.setState({
-      tabActive: newTabList
+      tabList: newTabList,
+      tabShow: newTabShow
     })
   }
 
   render () {
     return (
-      <div className={Style.mian}>
+      <div className='mian'>
         {' '}
         // 这个是模拟宽度
-        <div className={Style.schedule_warp}>
-          <div className={Style.tab_box}>
-            <div className={Style.tab_list}>
-              {this.state.tabActive.map((item, index) => {
+        <div className='schedule-warp'>
+          <div className='tab-box'>
+            <div className='tab-list'>
+              {this.state.tabList.map((item, index) => {
                 return (
                   <span
                     className={classNames(
-                      Style.item_btn,
-                      item.isOk ? Style.item_btn_isOk : ''
+                      'item-btn',
+                      item.isOk ? 'item-btn-isOk' : ''
                     )}
                     key={`${item.tabEN}${index}`}
                     onClick={() => {
-                      this.tabActive(item.tabEN)
+                      this.tabList(item.tabEN)
                     }}
                   >
                     {item.tabName}
@@ -90,19 +94,22 @@ export class Schedule extends React.Component<Prop, StateType> {
                 )
               })}
             </div>
-            <div className={Style.content_right}>
+            <div className='content-right'>
               {this.state.tabRightContent.map((item, index) => {
                 return (
-                  <div className={Style.content_box} key={`${index}content`}>
+                  <div className='content-box' key={`${index}content`}>
                     {item.text}
-                    <span className={Style.content_num}>{item.num}</span>
+                    <span className='content-num'>{item.num}</span>
                   </div>
                 )
               })}
             </div>
           </div>
-          <OlympicGames></OlympicGames> // 奥运会奖牌榜
-          <China></China> //中国奖牌榜
+          {this.state.tabShow == 'olympicGames' ? (
+            <OlympicGames></OlympicGames>
+          ) : (
+            <China></China>
+          )}
         </div>
       </div>
     )

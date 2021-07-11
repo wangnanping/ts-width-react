@@ -1,0 +1,158 @@
+.component-country-modal {
+    width: 892px !important;
+
+    .content-box {
+        .title {
+            text-align: center;
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .type-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 9px;
+            border-bottom: 1px solid #f2f2f2;
+            box-sizing: border-box;
+
+            .type-text {
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            .search {
+                display: flex;
+                align-items: center;
+
+                .search-inp {
+                    width: 174px;
+                    height: 32px;
+                    border-radius: 4px !important;
+                    border: solid 1px #f2f2f2 !important;
+                    background-color: rgba(214, 223, 234, 0.2) !important;
+                    color: #b6bccb !important;
+                }
+
+                .search-btn {
+                    width: 80px;
+                    height: 32px;
+                    line-height: 12px;
+                    margin-left: 16px;
+                    border-radius: 5px;
+                    border: solid 1px #ee7568;
+                    font-size: 16px;
+                    color: #ee7568;
+                }
+
+            }
+        }
+
+        .hot-list {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            list-style: none;
+            padding: 14px 0 11px 0px;
+
+            .item {
+                margin-right: 12px;
+
+                .item-text {
+                    display: inline-block;
+                    cursor: pointer;
+                    color: #333;
+                    font-size: 14px;
+                    padding: 4px 10px;
+                }
+
+                .item-isOk {
+                    border-radius: 4px;
+                    background-color: #ee7568;
+                    color: #fff;
+                }
+            }
+        }
+
+        .classified-area {
+            list-style: none;
+            max-height: 450px;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: rgb(239, 239, 239);
+                border-radius: 2px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 2px;
+                background-color: #ee7568;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: #ee7568;
+            }
+
+            .list-item {
+                display: flex;
+                justify-content: flex-start;
+
+                .letter {
+                    margin-right: 20px;
+                    font-size: 14px;
+                    color: #333;
+                    font-weight: bold;
+                }
+
+                .area {
+                    width: 100%;
+                    border-bottom: 1px solid #f2f2f2;
+                    padding-bottom: 10px;
+                    margin-bottom: 10px;
+                    box-sizing: border-box;
+
+                    .area-item {
+                        display: inline-block;
+                        padding: 4px 10px;
+                        margin-right: 12px;
+                        cursor: pointer;
+                    }
+
+                    .area-item-isOk {
+                        border-radius: 4px;
+                        background-color: #ee7568;
+                        color: #fff;
+
+                    }
+                }
+
+            }
+        }
+
+        .operation-btn {
+            padding: 30px 0;
+            text-align: center;
+
+            .btn {
+                width: 130px;
+                height: 40px;
+                border-radius: 5px;
+                border: solid 1px #ee7568;
+                font-size: 16px;
+                color: #ee7568;
+                margin: 0 15px;
+            }
+
+            .btn-background {
+                background-color: #ee7568;
+                color: #fff;
+            }
+        }
+    }
+}

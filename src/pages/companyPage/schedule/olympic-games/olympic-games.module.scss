@@ -1,0 +1,123 @@
+.OlympicGames-warp {
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+
+  :global {
+    .ant-table-thead>tr>th {
+      background-color: #ee7568;
+      color: #fff;
+      text-align: center;
+      padding: 0 !important;
+    }
+
+    .ant-table-thead>tr>th:hover {
+      background-color: #ee7568;
+    }
+
+    .ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-sorters:hover {
+      background: #ee7568;
+      color: #fff;
+
+    }
+
+    // .ant-table-thead>tr>.ant-table-cell-scrollbar {
+    //   background-color: #fff !important;
+    // }
+
+    .ant-table-thead>tr:nth-child(2)>th {
+      border-top: solid 0.5px #d9d9d9;
+      border-left: solid 0.5px #d9d9d9;
+      box-sizing: border-box;
+      height: 30px;
+    }
+
+    .ant-table-thead>tr:nth-child(2)>th:last-child {
+      border-right: solid 0.5px #d9d9d9;
+    }
+
+    // .ant-table-thead>tr:nth-child(2)>th:nth-child(2){
+    //   border-right: solid 0.5px #d9d9d9;
+    // }
+
+    .ant-table-thead>tr>th[colspan="3"] {
+      border-left: solid 0.5px #d9d9d9;
+      text-align: center;
+      box-sizing: border-box;
+      height: 34px;
+      width: 300px;
+    }
+
+    // .ant-table-thead>tr>th[colspan="3"]:nth-child(2){
+    //   border-right: solid 0.5px #d9d9d9;
+    // }
+
+    .ant-table-thead>tr>th[colspan="2"] {
+      height: 64px;
+    }
+
+    .ant-table-body {
+      &::-webkit-scrollbar {
+        width: 4px !important;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgb(239, 239, 239) !important;
+        border-radius: 2px !important;
+      }
+
+      &::-webkit-scrollbar-thumb {
+
+
+        
+        border-radius: 2px !important;
+        background-color: #ee7568 !important;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: #ee7568 !important;
+      }
+
+    }
+
+    .ant-table-tbody>tr>td:last-child {
+      border-right: solid 0.5px #d9d9d9;
+    }
+
+    .ant-table-tbody>tr>td {
+      color: #333;
+      font-size: 12px;
+      height: 39px;
+      border-bottom: solid 0.5px #d9d9d9;
+      border-left: solid 0.5px #d9d9d9;
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    .ant-table-tbody>tr:nth-child(2n) {
+      background: #f7f7f8;
+    }
+
+  }
+
+  .head-icon-img {
+    width: 48px;
+  }
+
+  .top-three {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    color: #fff;
+    text-align: center;
+    background-color: #ee7568;
+    border-radius: 1.4px;
+  }
+
+  .top-three-box {
+    height: 39px;
+    line-height: 39px;
+    color: #ee7568;
+    background-color: #fffaf9;
+  }
+}

@@ -1,0 +1,66 @@
+.china-warp {
+    :global {
+
+        .ant-table-thead>tr>th,
+        .ant-table-tbody>tr>td {
+            padding: 8px 8px !important;
+        }
+
+        .ant-table-thead>tr>th {
+            background-color: #ee7568;
+            color: #fff;
+            text-align: center;
+            padding: 0 !important;
+            height: 64px;
+        }
+
+        .ant-table-thead>tr>th:hover {
+            background-color: #ee7568;
+        }
+
+        .ant-table-body {
+            &::-webkit-scrollbar {
+                width: 4px !important;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: rgb(239, 239, 239) !important;
+                border-radius: 2px !important;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 2px !important;
+                background-color: #ee7568 !important;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: #ee7568 !important;
+            }
+
+        }
+
+
+        .ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-sorters:hover {
+            background: #ee7568;
+            color: #fff;
+        }
+
+        .ant-table-tbody>tr>td:last-child {
+            border-right: solid 0.5px #d9d9d9;
+        }
+
+        .ant-table-tbody>tr>td {
+            color: #333;
+            font-size: 12px;
+            height: 39px;
+            border-bottom: solid 0.5px #d9d9d9;
+            border-left: solid 0.5px #d9d9d9;
+            box-sizing: border-box;
+        }
+
+        .ant-table-tbody>tr:nth-child(2n) {
+            background: #f7f7f8;
+        }
+
+    }
+}

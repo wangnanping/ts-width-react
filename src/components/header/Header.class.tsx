@@ -88,6 +88,8 @@ class HeaderComponnet extends React.Component<RouteComponentProps, State> {
               <Button onClick={() => history.push('register')}>注册</Button>
               <Button onClick={() => history.push('signIn')}>登陆</Button>
               <Button onClick={() => history.push('schedule')}>赛事</Button>
+              <Button onClick={() => history.push('ScheduleMsg')}>赛程</Button>
+              <Button onClick={() => history.push('WonderfulReplay')}>赛事回放</Button>
             </Button.Group>
           </div>
         </div>
