@@ -3,7 +3,7 @@ import { Button, Radio } from 'antd'
 import classNames from 'classnames'
 import "./schedule.scss"
 import OlympicGames from './olympic-games/olympic-games' // 奥运会奖牌榜
-import China from './china/china' //中国奖牌榜
+import China from './china/China' //中国奖牌榜
 
 interface Prop {}
 

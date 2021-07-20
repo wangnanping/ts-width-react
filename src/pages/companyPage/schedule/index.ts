@@ -1,2 +1,2 @@
-export * from "./schedule"
+export * from "./Schedule"
 export * from "./schedule-msg"
